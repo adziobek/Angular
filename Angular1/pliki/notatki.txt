@@ -1,0 +1,30 @@
+2010 - start projektu 
+2016 - Aktualna stabilna wersja: 2.0.0 (14 września 2016)
+2012 - powstał Batarang - wtyczka do Chrome, ułatwiająca debugowanie Angulara w przeglądarce
+
+-- Podstawy
+AngularJS - framework JavaScriptowy, wydany przez Google, wspierający tworzenie aplikacji webowych opartych na pojedyńczej stronie
+			(SPA - Single Page Application) oraz wspierający wzorzec MVC. Model i Controller są po stronie widoku i to one generują
+			nowego htmla, więc nie trzeba pukać do serwera i przeładowywac stronę.
+			
+SPA(single-page application) - aplikacja oparta tylko na jednej stronie(tak jak jest to w aplikacjach desktopowych). Wszystkie 
+			potrzebne JavaScripty, Cssy, html są ładowane tylko raz, gdy ładuje się główna strona. 
+			
+Konto nauki angulara: http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/1/section/1/video/1
+mail:zucariyo@cartelera.org		
+l:AngularMM
+h:angular16			
+			
+Dyrektywa - dodatek do taga htmlowego, poszerzający jego możliwości, odnoszący się do kodu w JavaScripcie.
+		
+
+Moduł - kontener na kontrolery, serwisy.
+		Tworzony gdy podamy 2 parametry:
+		var myModule = angular.module('myModule', []);
+		Wyjmowany gdy podamy jeden parametr:
+		var myModule = angular.module('myModule');
+		
+		
+-- Pytania
+1)Do czego służy obiekt angular.injector?
+Do pozyskiwania serwisów oraz do wstrzykiwania zależności.
