@@ -7,39 +7,58 @@
     <link type="text/css" rel="stylesheet" href="bootstrap.css"/>
 </head>
 <body>
-    <div ng-controller="SimpleController">
-        <label>Name:</label>
-        <input type="text" ng-model="name" placeholder="Put your name"/>
-        <h1>Hello {{name}}</h1>
-        <h2>{{greeting}}</h2>
-        <hr/>
-        <ol>
-            <li ng-repeat="country in countries">{{country}}</li>
-        </ol>
-        <table border="0">
-            <tr>
-                <td><input type="checkbox" ng-model="disable">Disable</td>
-                <td><button ng-disabled="disable">Clik me!</button></td>
-            </tr>
-        </table>
-        <button ng-click="clickCounter = clickCounter +1">Kliknij</button>Cliked: {{clickCounter}} times
-    </div>
+<div ng-controller="SimpleController">
+    <label>Name:</label>
+    <input type="text" ng-model="name" placeholder="Put your name"/>
+    <h1>Hello {{name}}</h1>
+    <h2>{{greeting}}</h2>
     <hr/>
-    <div ng-controller="StudentController">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Mark</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="student in students" class="ingo">
-                <td>{{student.name}}</td>
-                <td>{{student.mark}}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <ol>
+        <li ng-repeat="country in countries">{{country}}</li>
+    </ol>
+    <table border="0">
+        <tr>
+            <td><input type="checkbox" ng-model="disable">Disable</td>
+            <td>
+                <button ng-disabled="disable">Clik me!</button>
+            </td>
+        </tr>
+    </table>
+    <button ng-click="clickCounter = clickCounter +1">Kliknij</button>
+    Cliked: {{clickCounter}} times
+</div>
+<hr/>
+<div ng-controller="StudentController">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Mark</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="student in students" class="ingo">
+            <td>{{student.name}}</td>
+            <td>{{student.mark}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr/>
+<div ng-controller="FormController">
+    <form name="nameForm" novalidate>
+        <label>Imie:</label><input type="text" name="firstName" ng-model="firstName">
+        <span ng-show="nameForm.firstName.$dirty">
+            <span>Sprawdza czy wartosc zostala zmieniona</span>
+        </span><br/>
+        <label>Email:</label><input type="email" name="email" ng-model="email"/><br/>
+        <span ng-show="nameForm.email.$invalid">
+            <span>Sprawdza czy wartosc zostala zmieniona</span>
+        </span>
+        <br/>
+        <button ng-click="resetForm()">Resetuj</button>
+        <button ng-disabled = "nameform.firstName.$dirty && nameForm.firstName.$invalid" ng-click="submit()">Submit</button>
+    </form>
+</div>
 </body>
 </html>

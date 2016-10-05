@@ -7,7 +7,7 @@ myapp.controller('SimpleController', function ($scope) {
 
     $scope.greeting = "Hello from AngularJS";
     $scope.countries = ['Polska', 'Niemcy', 'Dania'];
-})
+});
 
 myapp.controller('StudentController', function ($scope) {
 
@@ -18,13 +18,22 @@ myapp.controller('StudentController', function ($scope) {
         },
         {
             name: 'Kasia',
-            mark:6
+            mark: 6
         },
         {
             name: 'Marta',
             mark: 2
         }
     ];
+});
+myapp.controller('FormController', function ($scope) {
+
+    $scope.firstName = '';
+    $scope.email = '';
+    $scope.resetForm = function () {
+        $scope.firstName = '';
+        $scope.email = '';
+    }
 })
 
 
