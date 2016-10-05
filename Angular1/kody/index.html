@@ -16,7 +16,10 @@
         <ol>
             <li ng-repeat="country in countries">{{country}}</li>
         </ol>
+        <button ng-click="clickCounter = clickCounter +1">Kliknij</button>
+        <p>Cliked: {{clickCounter}} times</p>
     </div>
+    <hr/>
     <div ng-controller="StudentController">
         <table class="table">
             <thead>
