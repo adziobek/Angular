@@ -2,8 +2,30 @@
  * Created by adziobek on 05.10.2016.
  */
 
-angular.module("myapp", []).controller('SimpleController', function ($scope) {
+var myapp = angular.module("myapp", []);
+myapp.controller('SimpleController', function ($scope) {
 
     $scope.greeting = "Hello from AngularJS";
     $scope.countries = ['Polska', 'Niemcy', 'Dania'];
 })
+
+myapp.controller('StudentController', function ($scope) {
+
+    $scope.students = [
+        {
+            name: 'Andrzej',
+            mark: 1
+        },
+        {
+            name: 'Kasia',
+            mark:6
+        },
+        {
+            name: 'Marta',
+            mark: 2
+        }
+    ];
+})
+
+
+

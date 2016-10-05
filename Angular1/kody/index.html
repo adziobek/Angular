@@ -4,6 +4,7 @@
 <head>
     <script src="angular.js"></script>
     <script src="app.js"></script>
+    <link type="text/css" rel="stylesheet" href="bootstrap.css"/>
 </head>
 <body>
     <div ng-controller="SimpleController">
@@ -15,6 +16,22 @@
         <ol>
             <li ng-repeat="country in countries">{{country}}</li>
         </ol>
+    </div>
+    <div ng-controller="StudentController">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mark</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="student in students" class="ingo">
+                <td>{{student.name}}</td>
+                <td>{{student.mark}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
