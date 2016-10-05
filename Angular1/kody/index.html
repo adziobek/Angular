@@ -57,8 +57,10 @@
         </span>
         <br/>
         <button ng-click="resetForm()">Resetuj</button>
-        <button ng-disabled = "nameform.firstName.$dirty && nameForm.firstName.$invalid" ng-click="submit()">Submit</button>
+        <button ng-disabled="nameform.firstName.$dirty && nameForm.firstName.$invalid" ng-click="submit()">Submit</button>
     </form>
 </div>
+<hr/>
+<div ng-include="'small.html'"></div>
 </body>
 </html>
