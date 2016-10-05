@@ -3,8 +3,15 @@
 <html ng-app="myapp">
 <head>
     <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
     <script src="app.js"></script>
     <link type="text/css" rel="stylesheet" href="bootstrap.css"/>
+    <script type="text/ng-template" id="addStudent.html">
+        <h2>Add student</h2>
+        <label>Name:</label><input type="text"/><br/>
+        <button>Add</button>
+    </script>
+
 </head>
 <body>
 <div ng-controller="SimpleController">
@@ -77,6 +84,10 @@
             <td>{{ student.Percentage }}</td>
         </tr>
     </table>
+    <p><a href="#addStudent">Add student</a>
+        <a href="#viewStudents">Show students</a></p>
+    <div ng-view></div>
 </div>
+
 </body>
 </html>

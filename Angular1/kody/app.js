@@ -2,7 +2,33 @@
  * Created by adziobek on 05.10.2016.
  */
 
-var myapp = angular.module("myapp", []);
+var myapp = angular.module("myapp", ['ngRoute']);
+
+myapp.config(function ($routeProvider) {
+    $routeProvider
+        .when('/',
+            {
+                templateUrl: 'index.html'
+            })
+        .when('/addStudent',
+            {
+                templateUrl: 'addStudent.html',
+                controller: 'StudentController'
+            })
+        .when('/viewStudents',
+            {
+                templateUrl: 'file:///C:/nauka/github/Angular/Angular1/kody/viewStudents.html',
+                controller: 'StudentController'
+            })
+
+        .otherwise(
+            {
+                redirectTo: '/'
+            }
+        );
+});
+
+
 myapp.controller('SimpleController', function ($scope) {
 
     $scope.greeting = "Hello from AngularJS";
@@ -26,7 +52,7 @@ myapp.controller('StudentController', function ($scope, $http) {
         }
     ];
 
-    var url="data.txt";
+    var url = "data.txt";
     $http.get(url).success(function (response) {
         $scope.studentsFromDatabase = response;
     })
