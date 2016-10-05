@@ -62,5 +62,21 @@
 </div>
 <hr/>
 <div ng-include="'small.html'"></div>
+<hr/>
+<div ng-controller="StudentController">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Percentage</th>
+        </tr>
+
+        <tr ng-repeat="student in studentsFromDatabase">
+            <td>{{ student.Name }}</td>
+            <td>{{ student.RollNo }}</td>
+            <td>{{ student.Percentage }}</td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

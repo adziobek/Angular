@@ -9,7 +9,7 @@ myapp.controller('SimpleController', function ($scope) {
     $scope.countries = ['Polska', 'Niemcy', 'Dania'];
 });
 
-myapp.controller('StudentController', function ($scope) {
+myapp.controller('StudentController', function ($scope, $http) {
 
     $scope.students = [
         {
@@ -25,6 +25,11 @@ myapp.controller('StudentController', function ($scope) {
             mark: 2
         }
     ];
+
+    var url="data.txt";
+    $http.get(url).success(function (response) {
+        $scope.studentsFromDatabase = response;
+    })
 });
 myapp.controller('FormController', function ($scope) {
 
