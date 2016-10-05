@@ -36,7 +36,9 @@ MVC- w angularze nie ma czystego MVC. Jest za to MVVM - Model-Viev-ViewModel
 Bezpieczeństwo - Angulara uważa się za niebezpiecznego. Wszystko odbywa sie w java scripcie po stronie klienta. Aby
         aplikacja była bezpieczna, potrzebna jest autentyfikacja i autoryzacja po stronie serwera. Gdy nie trzeba się logowac to spoko,
         a jak trzeba to trzeba użyć np. Springa MVC dodatkowo.
-		
+ng-app - wiąże angularową aplikację z htmlem oraz uruchamia ją na danej stronie.
+ng-init - inicjalizuje dane aplikacji angularowej.
+
 -- Pytania
 1)Do czego służy obiekt angular.injector?
 Do pozyskiwania serwisów oraz do wstrzykiwania zależności.

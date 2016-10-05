@@ -5,5 +5,5 @@
 angular.module("myapp", []).controller('SimpleController', function ($scope) {
 
     $scope.greeting = "Hello from AngularJS";
-
+    $scope.countries = ['Polska', 'Niemcy', 'Dania'];
 })
