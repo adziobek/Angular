@@ -23,7 +23,19 @@ Moduł - kontener na kontrolery, serwisy.
 		var myModule = angular.module('myModule', []);
 		Wyjmowany gdy podamy jeden parametr:
 		var myModule = angular.module('myModule');
-		
+
+Two way data binding - powiązanie widok-model. Jeśli jakiś tekst wpisujemy do inputa to nie trzeba robić subimta na formularzu
+        by te dane zapisać w modelu. Dane te zostaną zapisane w ng-model, modelu po stronie widoku.
+Serwisy - w Angularze są wbudowane serwisy, które są singletonami(jedna instancja na całą aplikację/ moduł).
+        Np. serwis $http, za pomocą ,którego można się komunikować z serwerem, wysyłać jsona.
+        Można tworzyć swoje serwisy.
+Dyrektywy - wbudowane(ng-model, ng-repeat) - poszerzają możliwości tagów htmlowych. Można tworzyć też własne, które
+        będą templatami htmlowymi.
+MVC- w angularze nie ma czystego MVC. Jest za to MVVM - Model-Viev-ViewModel
+
+Bezpieczeństwo - Angulara uważa się za niebezpiecznego. Wszystko odbywa sie w java scripcie po stronie klienta. Aby
+        aplikacja była bezpieczna, potrzebna jest autentyfikacja i autoryzacja po stronie serwera. Gdy nie trzeba się logowac to spoko,
+        a jak trzeba to trzeba użyć np. Springa MVC dodatkowo.
 		
 -- Pytania
 1)Do czego służy obiekt angular.injector?
