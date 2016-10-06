@@ -6,7 +6,7 @@ var myapp = angular.module("myapp", ['ngRoute']);
 
 myapp.config(function ($routeProvider) {
     $routeProvider
-        .when('/',
+        .when('',
             {
                 templateUrl: 'index.html'
             })
@@ -17,13 +17,13 @@ myapp.config(function ($routeProvider) {
             })
         .when('/viewStudents',
             {
-                templateUrl: 'file:///C:/nauka/github/Angular/Angular1/kody/viewStudents.html',
+                templateUrl: 'viewStudents.html',
                 controller: 'StudentController'
             })
 
         .otherwise(
             {
-                redirectTo: '/'
+                redirectTo: ''
             }
         );
 });
