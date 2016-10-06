@@ -20,7 +20,11 @@ myapp.config(function ($routeProvider) {
                 templateUrl: 'viewStudents.html',
                 controller: 'StudentController'
             })
-
+        .when('/scopetest',
+            {
+                templateUrl: 'scopetest.html'
+            }
+            )
         .otherwise(
             {
                 redirectTo: ''
