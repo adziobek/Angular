@@ -25,6 +25,11 @@ myapp.config(function ($routeProvider) {
                 templateUrl: 'scopetest.html'
             }
             )
+        .when('/addNumber',
+            {
+                templateUrl: 'addNumber.html'
+            }
+        )
         .otherwise(
             {
                 redirectTo: ''
