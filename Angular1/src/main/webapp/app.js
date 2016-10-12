@@ -37,11 +37,12 @@ myapp.config(function ($routeProvider) {
         );
 });
 
-
-myapp.controller('SimpleController', function ($scope) {
+myapp.value("defaultName", "Defautl Name")
+myapp.controller('SimpleController', function ($scope, defaultName) {
 
     $scope.greeting = "Hello from AngularJS";
     $scope.countries = ['Polska', 'Niemcy', 'Dania'];
+    $scope.name = defaultName;
 });
 
 myapp.controller('StudentController', function ($scope, $http) {
