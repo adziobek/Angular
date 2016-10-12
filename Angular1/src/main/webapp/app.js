@@ -30,6 +30,11 @@ myapp.config(function ($routeProvider) {
                 templateUrl: 'addNumber.html'
             }
         )
+        .when('/customStudentDirective',
+            {
+                templateUrl: 'customStudentDirective.html'
+            }
+        )
         .otherwise(
             {
                 redirectTo: ''
@@ -46,6 +51,13 @@ myapp.controller('SimpleController', function ($scope, defaultName) {
 });
 
 myapp.controller('StudentController', function ($scope, $http) {
+    //Dane do uzycia w dyrektywie
+    $scope.Kamil = {};
+    $scope.Kamil.name = "Kamil Calek";
+    $scope.Kamil.rollno = 1;
+    $scope.Kasia = {};
+    $scope.Kasia.name = "Kasia";
+    $scope.Kasia.rollno = 2;
 
     $scope.students = [
         {
@@ -77,5 +89,27 @@ myapp.controller('FormController', function ($scope) {
     }
 })
 
+myapp.directive("student", function () {
 
+    var directive = {};
+    directive.restrict = 'E';
+    directive.template = "Student: <b>{{student.name}}</b> , Roll No: <b>{{student.rollno}}</b>";
+    directive.scope = {
+        student: "=name"
+    }
+
+    //compile is called during application initialization. AngularJS calls it once when html page is loaded.
+    directive.compile = function(element, attributes) {
+        element.css("border", "2px solid #cccccc");
+
+        //linkFunction is linked with each element with scope to get the element specific data.
+        var linkFunction = function($scope, element, attributes) {
+            element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.rollno+"</b><br/>");
+            element.css("background-color", "yellow");
+        }
+        return linkFunction;
+    }
+    return directive;
+
+})
 
