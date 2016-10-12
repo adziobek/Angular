@@ -4,6 +4,11 @@
 
 var myapp = angular.module("myapp", ['ngRoute']);
 
+myapp.value('VALIDATION_MESSAGES',
+    {
+        'required': 'To pole jest wymagane!',
+        'pattern': 'To pole ma niewłaściwy format!'
+    });
 myapp.config(function ($routeProvider) {
     $routeProvider
         .when('',
@@ -35,6 +40,11 @@ myapp.config(function ($routeProvider) {
                 templateUrl: 'customStudentDirective.html'
             }
         )
+        .when('/studentFormValidation',
+            {
+                templateUrl: 'studentFormValidation.html'
+            }
+        )
         .otherwise(
             {
                 redirectTo: ''
@@ -42,12 +52,12 @@ myapp.config(function ($routeProvider) {
         );
 });
 
-myapp.value("defaultName", "Defautl Name")
-myapp.controller('SimpleController', function ($scope, defaultName) {
+
+myapp.controller('SimpleController', function ($scope) {
 
     $scope.greeting = "Hello from AngularJS";
     $scope.countries = ['Polska', 'Niemcy', 'Dania'];
-    $scope.name = defaultName;
+    $scope.name = "Andrzej";
 });
 
 myapp.controller('StudentController', function ($scope, $http) {
@@ -89,6 +99,15 @@ myapp.controller('FormController', function ($scope) {
     }
 })
 
+myapp.controller('ValidationController', function ($scope) {
+    //Minimum 8 znaków, 1 duża i mała litera, 1 liczba i znak specjalny
+    $scope.passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/;
+    $scope.password ;
+    $scope.errorMessage ;
+    $scope.submitForm = function() {
+        console.log("Form is sending...");
+    };
+})
 myapp.directive("student", function () {
 
     var directive = {};
@@ -112,4 +131,25 @@ myapp.directive("student", function () {
     return directive;
 
 })
+
+myapp.directive('localValidationMsg', localValidationMsg);
+function localValidationMsg(VALIDATION_MESSAGES) {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            formField: '=',
+        },
+        template: [
+            '<span style="color:red">',
+            '<span class="message" ng-repeat="(errName, errState) in formField.$error" ng-if="formField.$dirty">',
+            '<span ng-bind="messages[errName]"></span><br>',
+            '</span>',
+            '</span>',
+        ].join(''),
+        link: function(scope, element) {
+            scope.messages = VALIDATION_MESSAGES;
+        }
+    }
+};
 
