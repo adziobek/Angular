@@ -10,9 +10,6 @@
             </div>
             <hr class="form-control">
             <input id="oldPassword" type="password" name="oldPassword" ng-model="password.oldPassword" tabindex="1" ng-pattern="passwordRegex" required>
-            <span ng-show="changePasswordForm.oldPassword.$valid && changePasswordForm.newPassword.$valid">
-                            <span ng-show="password.oldPassword == password.newPassword" style="color:red">Stare i nowe hasło nie mogą być identyczne!</span>
-                        </span>
             <local-validation-msg form-field="changePasswordForm.oldPassword"></local-validation-msg>
 
             <div class="label-change-password">

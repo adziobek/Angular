@@ -7,7 +7,8 @@ var myapp = angular.module("myapp", ['ngRoute']);
 myapp.value('VALIDATION_MESSAGES',
     {
         'required': 'To pole jest wymagane!',
-        'pattern': 'To pole ma niewłaściwy format!'
+        'pattern': 'To pole ma niewłaściwy format!',
+        'duplicate': 'Nowe i stare hasło nie mogą być identyczne !'
     });
 myapp.config(function ($routeProvider) {
     $routeProvider
@@ -105,7 +106,19 @@ myapp.controller('ValidationController', function ($scope) {
     $scope.password ;
     $scope.errorMessage ;
     $scope.submitForm = function() {
-        console.log("Form is sending...");
+        if($scope.changePasswordForm.$invalid) {
+            console.log("Not submit form. Form invalid !!!");
+            $scope.changePasswordForm.oldPassword.$setDirty();
+            $scope.changePasswordForm.newPassword.$setDirty();
+            return;
+        }
+        if(($scope.password.oldPassword == $scope.password.newPassword)){
+            $scope.changePasswordForm.newPassword.$error = {'duplicate': true};
+            console.log("Not submit form. Old and new password must not be the same !!!");
+            return;
+        }
+
+        console.log("Form is submit successfully!!!");
     };
 })
 myapp.directive("student", function () {
